@@ -3,7 +3,7 @@
 clear all
 clc
 
-%% Input
+% Input
 iT = 0.25; % Time to maturity in years
 iSteps = 1000; % Number of steps (except initial step t = 0)
 dt = iT./iSteps; % Time interval length
@@ -17,7 +17,7 @@ iSigmaImp = 0.2; % Implied volatility of the stock
 iSigmaAct = 0.3; % Actual volatility of the stock
 iCost = 0; % Transaction costs
 
-%% Define paths of underlying
+% Define paths of underlying
 
 Time = [0:dt:iT]'; % Time vector
 StockPaths = zeros(iSteps + 1, iNumSimu);
@@ -31,7 +31,7 @@ for i = 1 : iNumSimu
     end
 end
 
-%% Calculation of option price and delta for each time step (observed)
+% Calculation of option price and delta for each time step (observed)
 
 OptPriceAct = zeros(iSteps + 1, iNumSimu);
 OptDeltaAct = zeros(iSteps + 1, iNumSimu);
@@ -46,7 +46,7 @@ for i = 1 : iNumSimu
     end
 end
 
-%% Calculation of option price and delta for each time step (impled)
+% Calculation of option price and delta for each time step (impled)
 
 OptPriceImp = zeros(iSteps + 1, iNumSimu);
 OptDeltaImp= zeros(iSteps + 1, iNumSimu);
@@ -61,7 +61,7 @@ for i = 1 : iNumSimu
     end
 end
 
-%% Observed Volatility Hedging
+% Observed Volatility Hedging
 
 oPortfolioAct = zeros(iSteps + 1, iNumSimu);
 oCashAct = zeros(iSteps + 1, iNumSimu);
@@ -102,7 +102,7 @@ oArtOptionAct = -1.*(oPortfolioAct - oRealOptionAct + oCashAct);
 % Display observed profit and loss
 plot(oPnLAct)
 
-%% Implied Volatility Hedging
+% Implied Volatility Hedging
 
 %oPortfolioImp = zeros(iSteps + 1, iNumSimu);
 %oCashImp = zeros(iSteps + 1, iNumSimu);

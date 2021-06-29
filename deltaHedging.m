@@ -3,7 +3,8 @@
 clear all
 clc
 
-% Input
+% Initialise variables
+
 iT = 0.25; % Time to maturity in years
 iSteps = 1000; % Number of steps (except initial step t = 0)
 dt = iT./iSteps; % Time interval length
